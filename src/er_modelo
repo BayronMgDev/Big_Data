@@ -1,0 +1,38 @@
+digraph ER_Modelo {
+	rankdir=LR
+	Incidente [label="Incidente
+- radicado (PK)
+- clase
+- gravedad
+- diseno
+- tipo_geocod
+- objectid
+- cbml (FK)
+- fecha (FK)
+- hora (FK)" shape=box]
+	Ubicacion [label="Ubicacion
+- cbml (PK)
+- direccion
+- direccion_enc
+- barrio
+- comuna
+- longitud
+- latitud
+- x_origen_nacional
+- y_origen_nacional
+- shape" shape=box]
+	Tiempo [label="Tiempo
+- fecha (PK)
+- hora (PK)
+- dia
+- periodo
+- dia_nombre
+- mes
+- mes_nombre" shape=box]
+	Tipo_Incidente [label="Tipo_Incidente
+- clase (PK)
+- gravedad" shape=box]
+	Incidente -> Ubicacion [label="1:N (ocurre en)"]
+	Incidente -> Tiempo [label="1:1 (ocurre en)"]
+	Incidente -> Tipo_Incidente [label="N:1 (pertenece a)"]
+}
